@@ -83,20 +83,36 @@ def get_attractions_for_traveler(traveler):
   traveler_interests = traveler[2]
   traveler_attractions = find_attractions(traveler_destination, traveler_interests)
   interests_string = "Hi " 
-  interests_string = interests_string + traveler[0] + ", we think you'll like these places around " + traveler[1] +": "
-  for traveler_attraction in traveler_attractions:
-    if len(traveler_attractions) == 1:
-        interests_string += "the " + traveler_attraction + "."
-    elif len(traveler_attractions) == 2:
-      if traveler_attraction != traveler_attractions[-1]:
-        interests_string += "the " + traveler_attraction
+  if len(traveler_attractions) == 1:
+    interests_string = interests_string + traveler[0] + ", we think you'll like this place around " + traveler[1] +": "
+    for traveler_attraction in traveler_attractions:
+      if len(traveler_attractions) == 1:
+          interests_string += "the " + traveler_attraction + "."
+      elif len(traveler_attractions) == 2:
+        if traveler_attraction != traveler_attractions[-1]:
+          interests_string += "the " + traveler_attraction
+        else:
+          interests_string += " and the " + traveler_attraction + "."
       else:
-        interests_string += " and the " + traveler_attraction + "."
-    else:
-      if traveler_attraction != traveler_attractions[-1]:
-        interests_string += "the " + traveler_attraction + ", "
+        if traveler_attraction != traveler_attractions[-1]:
+          interests_string += "the " + traveler_attraction + ", "
+        else:
+          interests_string += "and the " + traveler_attraction + "."
+  else:
+    interests_string = interests_string + traveler[0] + ", we think you'll like these places around " + traveler[1] +": "
+    for traveler_attraction in traveler_attractions:
+      if len(traveler_attractions) == 1:
+          interests_string += "the " + traveler_attraction + "."
+      elif len(traveler_attractions) == 2:
+        if traveler_attraction != traveler_attractions[-1]:
+          interests_string += "the " + traveler_attraction
+        else:
+          interests_string += " and the " + traveler_attraction + "."
       else:
-        interests_string += "and the " + traveler_attraction + "."
+        if traveler_attraction != traveler_attractions[-1]:
+          interests_string += "the " + traveler_attraction + ", "
+        else:
+          interests_string += "and the " + traveler_attraction + "."
   return interests_string
 
 smills_france = get_attractions_for_traveler(['Dereck Smill', 'Paris, France', ['monument']])
@@ -107,7 +123,3 @@ print(" ")
 print(get_attractions_for_traveler(test_traveler))
 print(" ")
 print(get_attractions_for_traveler(['Lara Robinson', 'Los Angeles, USA', ['museum']]))
-
-
-
-#
