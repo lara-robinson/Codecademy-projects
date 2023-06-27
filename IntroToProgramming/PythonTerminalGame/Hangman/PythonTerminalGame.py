@@ -54,25 +54,15 @@ list_of_words = [
   "SUNTAN"]
 
 #Turning the list of strings into a 2d list where each string is turned into a list of its letters. TODO: Consider refactoring the code below so I don't need this step  
-def create_2d_list_of_words(list_of_words):
-  new_list_of_words = [[] for word in list_of_words]
-  index = 0
-  for word in list_of_words:
-    for i in range(len(word)):
-      new_list_of_words[index].append(word[i])
-    index += 1
-  return new_list_of_words
-
-#Assigning the 2d list to a variable
-new_list = create_2d_list_of_words(list_of_words)
+new_list_of_words = [list(word) for word in list_of_words]
 
 #Game Intro
 print("Welcome to my Python terminal game. You can play hangman, right from the comfort of your own terminal. You must guess the secret word one letter at a time. Six wrong guesses and you're hanged!",'\n')
 
 #Selecting a random "secret word" for the game from the 2d list of words
-length_of_list_of_words = len(new_list) -1
+length_of_list_of_words = len(new_list_of_words) -1
 random_number = random.randint(0,length_of_list_of_words)
-secret_word = new_list[random_number]
+secret_word = new_list_of_words[random_number]
 
 #Count the letters in the "secret word" to create the placeholder where correct guesses will appear 
 secret_word_holder = ['_' for _ in range(len(secret_word))]
