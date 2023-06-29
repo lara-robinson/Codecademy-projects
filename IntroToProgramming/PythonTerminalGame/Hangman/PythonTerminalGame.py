@@ -51,7 +51,8 @@ list_of_words = [
   "RECESSION",
   "WRIGGLE",
   "CRYSTAL",
-  "SUNTAN"]
+  "SUNTAN",
+  "PAPARAZZI"]
 
 #Turning the list of strings into a 2d list where each string is turned into a list of its letters. TODO: Consider refactoring the code below so I don't need this step  
 new_list_of_words = [list(word) for word in list_of_words]
