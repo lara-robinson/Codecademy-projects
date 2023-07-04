@@ -1,0 +1,3 @@
+# Codecademy-projects
+
+or my first Python program, I wanted to make something fun for my coworkers to play. I started with a list of 50 words. One is randomly chosen and represented to the player as underscores. The player inputs a letter, and a function iterates over the secret word, replacing the underscores with the letter in the same position as it occurs in the secret word. The player has to figure out the secret word before 6 wrong guesses. Too many wrong guesses and the game is over! The secret word is then revealed to the player. This game was a blast to create and allowed me to practice creating an interactive program using variables, lists, loops and control flow.
